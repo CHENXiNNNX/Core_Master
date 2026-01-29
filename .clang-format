@@ -1,0 +1,75 @@
+# clang-format 配置
+# 基于 LLVM 风格，Allman 大括号
+
+BasedOnStyle: LLVM
+
+# 缩进
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+
+# 大括号风格 (Allman)
+BreakBeforeBraces: Allman
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Inline
+
+# 行宽
+ColumnLimit: 100
+
+# 指针/引用对齐
+PointerAlignment: Left
+ReferenceAlignment: Left
+DerivePointerAlignment: false
+
+# 空格
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpacesInAngles: false
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeRangeBasedForLoopColon: true
+SpacesInContainerLiterals: false
+
+# 对齐
+AlignOperands: Align
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveMacros: Consecutive
+AlignTrailingComments: true
+AlignEscapedNewlines: Left
+
+# 命名空间
+NamespaceIndentation: All
+CompactNamespaces: false
+FixNamespaceComments: true
+
+# 访问修饰符
+AccessModifierOffset: -4
+IndentAccessModifiers: false
+
+# include
+SortIncludes: false
+IncludeBlocks: Preserve
+
+# 换行
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+AllowAllParametersOfDeclarationOnNextLine: true
+BinPackArguments: true
+BinPackParameters: true
+
+# Lambda
+LambdaBodyIndentation: Signature
+
+# 其它
+ReflowComments: true
+MaxEmptyLinesToKeep: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+SeparateDefinitionBlocks: Leave

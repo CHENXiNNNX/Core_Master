@@ -1,0 +1,156 @@
+# clang-tidy 配置
+# 代码风格: snake_case 函数/变量, PascalCase 类型
+
+Checks: >
+  readability-*,
+  -readability-uppercase-literal-suffix,
+  -readability-identifier-length,
+  -readability-redundant-access-specifiers,
+  -readability-implicit-bool-conversion,
+  -readability-convert-member-functions-to-static,
+  -readability-simplify-boolean-expr,
+  -readability-function-cognitive-complexity,
+  -readability-function-size,
+  -readability-identifier-naming,
+  -readability-magic-numbers,
+  -readability-else-after-return,
+  -readability-braces-around-statements,
+  misc-*,
+  -misc-non-private-member-variables-in-classes,
+  -misc-unused-parameters,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  -modernize-use-default-member-init,
+  -modernize-use-nodiscard,
+  -modernize-concat-nested-namespaces,
+  -modernize-avoid-c-arrays,
+  -modernize-return-braced-init-list,
+  -modernize-use-auto,
+  -modernize-use-using,
+  -modernize-use-equals-delete,
+  -modernize-loop-convert,
+  performance-*,
+  cppcoreguidelines-*,
+  -cppcoreguidelines-macro-usage,
+  -cppcoreguidelines-special-member-functions,
+  -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-pro-type-vararg,
+  -cppcoreguidelines-pro-type-member-init,
+  -cppcoreguidelines-owning-memory,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-narrowing-conversions,
+  -cppcoreguidelines-pro-type-union-access,
+  -cppcoreguidelines-init-variables,
+  -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-avoid-non-const-global-variables,
+  bugprone-*,
+  -bugprone-narrowing-conversions,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-branch-clone,
+  -bugprone-implicit-widening-of-multiplication-result
+
+WarningsAsErrors: ''
+
+CheckOptions:
+  # 函数: snake_case
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+  - key: readability-identifier-naming.FunctionIgnoredRegexp
+    value: '^(main|app_main)$'
+
+  # 方法: snake_case
+  - key: readability-identifier-naming.MethodCase
+    value: lower_case
+
+  # 静态函数: snake_case
+  - key: readability-identifier-naming.StaticFunctionCase
+    value: lower_case
+
+  # 变量: snake_case
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.VariableIgnoredRegexp
+    value: '^(i|j|k|n|c|s|p|it)$'
+
+  # 参数: snake_case
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+
+  # 成员变量: snake_case + 下划线后缀
+  - key: readability-identifier-naming.MemberCase
+    value: lower_case
+  - key: readability-identifier-naming.MemberSuffix
+    value: '_'
+  - key: readability-identifier-naming.PrivateMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: '_'
+
+  # 静态变量: snake_case + s_ 前缀
+  - key: readability-identifier-naming.StaticVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.StaticVariablePrefix
+    value: 's_'
+
+  # 全局变量: snake_case + g_ 前缀
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.GlobalVariablePrefix
+    value: 'g_'
+
+  # 常量: UPPER_CASE
+  - key: readability-identifier-naming.ConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ConstexprVariableCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.ConstantMemberCase
+    value: UPPER_CASE
+
+  # 宏: UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+
+  # 枚举值: UPPER_CASE
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+
+  # 类: PascalCase
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+
+  # 结构体: PascalCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+
+  # 枚举: PascalCase
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+
+  # 类型别名: PascalCase
+  - key: readability-identifier-naming.TypeAliasCase
+    value: CamelCase
+
+  # typedef: snake_case + _t 后缀 (兼容C风格)
+  - key: readability-identifier-naming.TypedefCase
+    value: lower_case
+  - key: readability-identifier-naming.TypedefSuffix
+    value: '_t'
+
+  # 命名空间: lower_case (按目录层级命名, 如 common::uart::message)
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+
+  # 模板参数: PascalCase
+  - key: readability-identifier-naming.TemplateParameterCase
+    value: CamelCase
+
+  # 魔法数字
+  - key: readability-magic-numbers.IgnoredNumbers
+    value: '0,1,2,3,4,5,6,7,8,9,10,16,32,64,100,128,256,512,1000,1024,4096,8192'
+  - key: readability-magic-numbers.IgnorePowersOf2Integer
+    value: true
+
+HeaderFilterRegex: '.*'
